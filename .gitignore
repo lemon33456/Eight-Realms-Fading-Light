@@ -25,3 +25,12 @@
 # 3. macOS 系統文件
 # --------------------
 .DS_Store
+
+# --- 忽略大型文件 (超過 100MB 限制) ---
+# TextMesh Pro 資源文件
+Assets/TextMesh Pro/Resources/Fonts & Materials/思源黑體.asset
+Assets/TextMesh Pro/Resources/Fonts & Materials/2思源黑體.asset
+
+# 構建文件 (APK)
+*.apk
+TEST.apk
