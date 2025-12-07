@@ -1,0 +1,10 @@
+# ninja log v5
+99	2223	7867328897750400	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	3cfeb2dd49d0e616
+31	2238	7867328897914082	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	39c1d65ee009927a
+17	2271	7867328898315846	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c2fc68b328aed80d
+79	2284	7867328898444802	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	458b2df159de2d96
+45	2359	7867328899218563	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	adb5a9b61f2a58dd
+120	2610	7867328901703522	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a12fa6d16d0731c2
+60	2648	7867328902105284	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	43ec0932504ce45c
+1	2786	7867328903489141	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	ffc25dfe434c8d9d
+2787	2946	7867328905155688	C:/Users/a0913/Eight Realms Fading Light/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6cz4h563/obj/arm64-v8a/libgame.so	73014f96be4b8739

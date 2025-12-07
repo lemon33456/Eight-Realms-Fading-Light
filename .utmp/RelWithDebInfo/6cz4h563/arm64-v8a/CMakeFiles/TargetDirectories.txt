@@ -1,0 +1,5 @@
+C:/Users/a0913/Eight Realms Fading Light/.utmp/RelWithDebInfo/6cz4h563/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/a0913/Eight Realms Fading Light/.utmp/RelWithDebInfo/6cz4h563/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/a0913/Eight Realms Fading Light/.utmp/RelWithDebInfo/6cz4h563/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/a0913/Eight Realms Fading Light/.utmp/RelWithDebInfo/6cz4h563/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/a0913/Eight Realms Fading Light/.utmp/RelWithDebInfo/6cz4h563/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
