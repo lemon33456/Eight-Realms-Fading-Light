@@ -1,12 +1,11 @@
-// PlayerData.cs 保持不變
+// PlayerData.cs
 using System;
 using UnityEngine;
+using System.Collections.Generic; // 引入 List 所需的命名空間
 
-// [關鍵] 必須保留，才能使用 JsonUtility 進行存檔/讀檔
 [Serializable]
 public class PlayerData 
 {
-    // ... 保持所有欄位和方法不變 ...
     public const int MAX_STAMINA = 150; 
     public const int STAMINA_RECOVERY_TIME_SEC = 300; // 5 分鐘
 
@@ -18,11 +17,13 @@ public class PlayerData
     public int Diamond = 0;
     public int Stamina = 0;
     
+    // **【新增】** 玩家擁有的角色 ID 清單 (這是核心數據)
+    public List<int> OwnedCharacterIDs = new List<int>(); 
+    
     public long LastStaminaUpdateTimeTicks = 0;
 
     public PlayerData(string id, string name, int gold, int diamond, int stamina, int level)
     {
-        // ... (保持建構子邏輯) ...
         UserID = id;
         PlayerName = name;
         PlayerLevel = level;
@@ -31,11 +32,16 @@ public class PlayerData
         Stamina = Mathf.Min(stamina, MAX_STAMINA);
         
         LastStaminaUpdateTimeTicks = DateTime.Now.Ticks;
+        
+        // **【新增】** 賦予新玩家一些起始角色 (用於測試)
+        OwnedCharacterIDs.Add(1001); // 假設起始角色 A
+        OwnedCharacterIDs.Add(1002); // 假設起始角色 B
+        OwnedCharacterIDs.Add(1003); 
+        OwnedCharacterIDs.Add(2001); // 假設稀有角色
     }
     
     public int GetTimeRemainingToRecover()
     {
-        // ... (保持 GetTimeRemainingToRecover 邏輯) ...
         if (Stamina >= MAX_STAMINA) return 0;
 
         DateTime lastUpdate = new DateTime(LastStaminaUpdateTimeTicks);

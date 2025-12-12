@@ -32227,6 +32227,7 @@ struct GUIUtility_tA20863F7281628086EFC61CF90CB52D20E1FD76A_StaticFields
 struct GameDataService_t51B08107DB97997D39FF578EBE7C2920BE1226DE_StaticFields
 {
 	PlayerData_t04178AFFCFAF35DA6472B839034F672FFE5EB64A* ____currentPlayerData;
+	String_t* ___SAVE_FILE_PATH;
 };
 struct GraphicRegistry_t374118CCD6DBB47209C783A4BF2F4EF9EA78A326_StaticFields
 {
@@ -38389,9 +38390,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7798[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7801[15] = 
 {
 	static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___m_Content)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___m_TextSelecting)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___m_TextEditing)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___m_TextHandle)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___keyboardOnScreen)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___controlID)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___style)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___hasHorizontalCursorPos)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___isPasswordField)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___scrollOffset)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___m_TextWithWhitespace)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___U3CpositionU3Ek__BackingField)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___graphicalCursorPos)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___lastCursorPos)),static_cast<int32_t>(offsetof(TextEditor_t45128DFCB4C388BF7B8153693C9342D5D2358B27, ___previousContentSize)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7803[1] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7803[3] = 
 {
-	static_cast<int32_t>(offsetof(GameDataService_t51B08107DB97997D39FF578EBE7C2920BE1226DE_StaticFields, ____currentPlayerData)),};
+	static_cast<int32_t>(offsetof(GameDataService_t51B08107DB97997D39FF578EBE7C2920BE1226DE_StaticFields, ____currentPlayerData)),static_cast<int32_t>(offsetof(GameDataService_t51B08107DB97997D39FF578EBE7C2920BE1226DE_StaticFields, ___SAVE_FILE_PATH)),0,};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7804[11] = 
 {
 	static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___bottomNav)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___rightFunctions)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___leftFunctions)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___topRightFunctions)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___topInfo)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___topLeftInfo)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___uiElementsToHide)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___btnExitPhotoMode)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___isUIHidden)),static_cast<int32_t>(offsetof(LobbyManager_t3D76B2B2C2FBE659E1371C92C3C1B50AF2908797, ___timer)),0,};
