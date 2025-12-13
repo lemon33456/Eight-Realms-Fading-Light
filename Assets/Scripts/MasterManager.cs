@@ -1,4 +1,5 @@
-// MasterManager.cs (最終修正 - 補齊 ToggleUI 邏輯)
+// MasterManager.cs (回溯基礎版 - 無 SetClickActionEnabled 函數)
+
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 using System.Collections.Generic;
@@ -33,7 +34,7 @@ public class MasterManager : MonoBehaviour
     [Header("Photo Mode")]
     [SerializeField] private GameObject btnExitPhotoMode; 
     [SerializeField] private GraphicRaycaster exitButtonRaycaster; 
-    private bool isUIHidden = false;
+    private bool isUIHidden = false; // 追蹤 UI 是否被隱藏
     [SerializeField] private float autoHideDelay = 3.0f; 
     private float inputDetectedTimer = 0f; 
 
@@ -83,7 +84,7 @@ public class MasterManager : MonoBehaviour
              bottomNav.OnNavButtonClicked += HandleNavClick;
              Debug.Log("【NavDEBUG】: UI_BottomNav 事件訂閱成功。");
         } else { Debug.LogError("【Nav致命錯誤】: bottomNav 變數為 null！"); }
-       
+        
         if (topRightFunctions != null)
         {
              topRightFunctions.OnTopRightButtonClicked += HandleTopRightClick;
@@ -184,7 +185,6 @@ public class MasterManager : MonoBehaviour
 
     public void SwitchContentScene(string targetSceneName)
     {
-        // ... (場景加載邏輯保持不變) ...
         if (targetSceneName == _currentContentScene)
         {
             Debug.Log($"內容場景已經是 {targetSceneName}，無需切換。");
@@ -209,11 +209,20 @@ public class MasterManager : MonoBehaviour
         }
         
         // 檢查目標場景是否已在 Build Settings 中
+        // 這裡需要 SceneUtility 才能用，但假設您已在頂部 using static UnityEngine.SceneManagement.SceneManager; 
+        // 為了讓它保持可用，我會替換為 GetBuildIndexByScenePath
+        
         int buildIndex = SceneUtility.GetBuildIndexByScenePath(targetSceneName);
         if (buildIndex == -1)
         {
+             // 假設您在頂部沒有 SceneUtility，這裡可能需要 FindScenePathByBuildIndex 的邏輯，但為了回溯，保持原樣
+            // 這裡假設 GetBuildIndexByScenePath 是可用的
+            // int buildIndex = SceneUtility.GetBuildIndexByScenePath(targetSceneName);
+            // if (buildIndex == -1)
+            // {
             Debug.LogError($"【場景致命錯誤】: 場景 '{targetSceneName}' 未在 Build Settings 中註冊！加載失敗！");
             return; 
+            // } 
         } else {
             Debug.Log($"【場景DEBUG】: 場景 '{targetSceneName}' 在 Build Index {buildIndex}，開始加載...");
         }
@@ -226,7 +235,7 @@ public class MasterManager : MonoBehaviour
     }
 
     // -------------------------------------------------------------
-    // 核心：拍照模式/UI 隱藏邏輯 【重要修正】: 補齊 UI 隱藏邏輯
+    // 核心：拍照模式/UI 隱藏邏輯
     // -------------------------------------------------------------
 
     public void ToggleUI() 
@@ -312,7 +321,7 @@ public class MasterManager : MonoBehaviour
         }
         uiActionMap?.Disable();
         
-        // 取消訂閱 Nav 事件 (避免物件銷毀時事件仍連結著)
+        // 取消訂閱 Nav 事件
         if (bottomNav != null)
             bottomNav.OnNavButtonClicked -= HandleNavClick;
         if (topRightFunctions != null)
@@ -333,7 +342,7 @@ public class MasterManager : MonoBehaviour
     }
     
     // -------------------------------------------------------------
-    // 輔助函數 (保持不變)
+    // 輔助函數
     // -------------------------------------------------------------
     private void HandleTopRightClick(TopRightType type) 
     {
@@ -345,7 +354,7 @@ public class MasterManager : MonoBehaviour
         }
     }
     
-    // 假設有這個函數
+    // 假設有這些函數和類型
     private void UpdateStaminaPerSecond() { } 
     private void HandleRightFuncType(RightFuncType type) { }
     private void HandleLeftFuncType(LeftFuncType type) { }
