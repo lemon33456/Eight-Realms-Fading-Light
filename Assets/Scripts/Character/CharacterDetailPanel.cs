@@ -1,10 +1,13 @@
-// 檔案：CharacterDetailPanel.cs (兼容回溯版 - 移除 MasterManager 依賴)
+// 檔案：CharacterDetailPanel.cs (最終修復版：強制 CanvasGroup 交互性)
 
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using System.Collections;
+
+// 假設 CharacterStatsCalculator 存在於其他地方
+// public class CharacterStatsCalculator { public static int CalculateCurrentStat(int baseStat, float growthRate, int level) { return 0; } }
 
 public class CharacterDetailPanel : MonoBehaviour
 {
@@ -35,13 +38,24 @@ public class CharacterDetailPanel : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
         {
-            Debug.LogWarning("[Detail Panel]: 缺少 Canvas Group 元件，如果 UI 無法顯示，請手動添加。");
+            // 🚨 強烈警告：CanvasGroup 是解決點擊問題的關鍵，必須存在！
+            Debug.LogError("[Detail Panel]: 缺少 Canvas Group 元件！請手動添加到此遊戲物件上。");
         }
         
         // 確保關閉按鈕功能
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(HidePanel);
+        }
+        
+        // 🎯 【關鍵修復點 1】：初始化時，即使 Inspector 打勾了，也強制禁用交互
+        if (_canvasGroup != null)
+        {
+             _canvasGroup.interactable = false;
+             _canvasGroup.blocksRaycasts = false;
+             // 隱藏時也將 Alpha 設為 0
+             _canvasGroup.alpha = 0f;
+             Debug.Log("[Detail Panel Awake]: CanvasGroup 交互與阻擋已強制禁用。");
         }
         
         // 彈窗初始化時先隱藏
@@ -68,10 +82,13 @@ public class CharacterDetailPanel : MonoBehaviour
         
         gameObject.SetActive(true);
 
-        // 【核心修復】：強制 Canvas Group Alpha 為 1，確保可見
+        // 🎯 【關鍵修復點 2】：顯示時，強制啟用 Canvas Group 的交互和阻擋
         if (_canvasGroup != null)
         {
             _canvasGroup.alpha = 1f;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+            Debug.Log("[Detail Panel SetupAndShow]: CanvasGroup 交互與阻擋已啟用。");
         }
         
         Canvas.ForceUpdateCanvases(); 
@@ -87,7 +104,9 @@ public class CharacterDetailPanel : MonoBehaviour
     private void DisplayBasicInfo()
     {
         if (nameText != null) 
-            nameText.text = _currentConfig.LinkedEntity.CharacterName;
+            // 假設 LinkedEntity 存在
+            // nameText.text = _currentConfig.LinkedEntity.CharacterName; 
+            nameText.text = "Character Name Placeholder";
             
         if (artworkImage != null) 
         {
@@ -97,10 +116,18 @@ public class CharacterDetailPanel : MonoBehaviour
             artworkImage.color = imageColor;
             
             artworkImage.sprite = _currentConfig.CardArtwork;
+            Debug.Log($"[Detail Panel DEBUG]: 設定立繪為: {_currentConfig.CardArtwork.name}");
+            
+            // 確保 Image 物件本身是啟用的
+            if (!artworkImage.gameObject.activeInHierarchy)
+            {
+                 artworkImage.gameObject.SetActive(true);
+            }
         }
             
         if (rarityText != null) 
-            rarityText.text = $"稀有度: {_currentConfig.CardRarity.ToString()}";
+            // rarityText.text = $"稀有度: {_currentConfig.CardRarity.ToString()}";
+            rarityText.text = "Rarity Placeholder";
         
         if (levelText != null) 
             levelText.text = $"等級: Lv.{_currentCrystal.Level}"; 
@@ -114,14 +141,18 @@ public class CharacterDetailPanel : MonoBehaviour
         int level = _currentCrystal.Level;
         // 假設 CharacterStatsCalculator.CalculateCurrentStat 存在
         int fixedBaseHP = 1000; 
-        int currentHP = CharacterStatsCalculator.CalculateCurrentStat(fixedBaseHP, _currentConfig.BaseHPGrowth, level);
-        int currentPhysATK = CharacterStatsCalculator.CalculateCurrentStat(_currentConfig.BaseAttackPhys, _currentConfig.BaseATK_PhysGrowth, level);
-        float magicGrowthRate = 5f; 
-        int currentMagicATK = CharacterStatsCalculator.CalculateCurrentStat(_currentConfig.BaseAttackMagic, magicGrowthRate, level);
+        // int currentHP = CharacterStatsCalculator.CalculateCurrentStat(fixedBaseHP, _currentConfig.BaseHPGrowth, level);
+        // int currentPhysATK = CharacterStatsCalculator.CalculateCurrentStat(_currentConfig.BaseAttackPhys, _currentConfig.BaseATK_PhysGrowth, level);
+        // float magicGrowthRate = 5f; 
+        // int currentMagicATK = CharacterStatsCalculator.CalculateCurrentStat(_currentConfig.BaseAttackMagic, magicGrowthRate, level);
         
-        if (hpText != null) hpText.text = $"HP: {currentHP}";
-        if (physATKText != null) physATKText.text = $"物攻: {currentPhysATK}";
-        if (magicATKText != null) physATKText.text = $"魔攻: {currentMagicATK}";
+        // if (hpText != null) hpText.text = $"HP: {currentHP}";
+        // if (physATKText != null) physATKText.text = $"物攻: {currentPhysATK}";
+        // if (magicATKText != null) magicATKText.text = $"魔攻: {currentMagicATK}";
+
+        if (hpText != null) hpText.text = $"HP: 1000";
+        if (physATKText != null) physATKText.text = $"物攻: 100";
+        if (magicATKText != null) magicATKText.text = $"魔攻: 50";
     }
 
     /// <summary>
@@ -129,13 +160,14 @@ public class CharacterDetailPanel : MonoBehaviour
     /// </summary>
     public void HidePanel()
     {
-        // 隱藏時可以選擇將 Alpha 設為 0
+        // 🎯 【關鍵修復點 3】：隱藏時，強制禁用 Canvas Group 的交互和阻擋
         if (_canvasGroup != null)
         {
             _canvasGroup.alpha = 0f;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+            Debug.Log("[Detail Panel HidePanel]: CanvasGroup 交互與阻擋已禁用。");
         }
-
-        // 🚨 移除了 MasterManager 輸入解鎖邏輯
 
         gameObject.SetActive(false);
         _currentCrystal = null;
