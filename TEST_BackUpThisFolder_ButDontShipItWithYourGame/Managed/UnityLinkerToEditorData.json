@@ -51,7 +51,7 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -65,7 +65,7 @@
           {
             "name": "AudioListener",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -108,7 +108,9 @@
           {
             "name": "Camera",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -128,7 +130,9 @@
           {
             "name": "Cubemap",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -148,7 +152,9 @@
           {
             "name": "EditorExtension",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -162,7 +168,9 @@
           {
             "name": "GameObject",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -194,7 +202,9 @@
           {
             "name": "LevelGameManager",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -202,7 +212,9 @@
           {
             "name": "Light",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -228,7 +240,9 @@
           {
             "name": "LightmapSettings",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -242,7 +256,9 @@
           {
             "name": "Material",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -268,7 +284,9 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -282,7 +300,9 @@
           {
             "name": "MonoScript",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -290,7 +310,9 @@
           {
             "name": "NamedObject",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -328,7 +350,8 @@
           {
             "name": "RectTransform",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -342,7 +365,9 @@
           {
             "name": "RenderSettings",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -374,7 +399,9 @@
           {
             "name": "Shader",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/HomeScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -400,7 +427,8 @@
           {
             "name": "Sprite",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1321,7 +1349,8 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1370,21 +1399,25 @@
           {
             "name": "Canvas",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CanvasGroup",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/CharacterRosterScene.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CanvasRenderer",
             "scenes": [
-              "Assets/LobbyScene.unity"
+              "Assets/Scenes/CharacterRosterScene.unity",
+              "Assets/Scenes/MasterScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
